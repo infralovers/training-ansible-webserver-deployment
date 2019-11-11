@@ -19,9 +19,8 @@ before_script:
 
 linter:
   stage: lint
-  image: registry.gitlab.com/imagedb/ansible-lint
   script:
-    - ansible-lint loadbalancer.yml
+    - docker run --rm -v $(pwd):/data cytopia/ansible-lint loadbalancer.yml
 
 build:
  
