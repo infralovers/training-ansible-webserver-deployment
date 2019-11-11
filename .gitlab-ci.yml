@@ -4,13 +4,14 @@ services:
   - docker:19.03.1-dind
 
 before_script:
+  - export ANSIBLE_CONFIG=ansible.cfg
   - ansible --version
   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
   - eval $(ssh-agent -s)
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
-  - export ANSIBLE_CONFIG=ansible.cfg
+  - /usr/bin/git --version
 
 
 build:
