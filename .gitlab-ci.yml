@@ -18,6 +18,6 @@ build:
   stage: test
   script:
     - mkdir roles
-    - git clone git@gitlab.commandemy.training:git_training_user_20/helloworld.git roles/helloworld
+#    - git clone git@gitlab.commandemy.training:git_training_user_20/helloworld.git roles/helloworld
     - ansible-galaxy install -vvv --force -r requirements.yml
     - ansible-playbook loadbalancer.yml
