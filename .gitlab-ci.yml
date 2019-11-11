@@ -11,7 +11,7 @@ before_script:
   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
   - chmod 700 ~/.ssh
-  - /usr/bin/git --version
+  - ssh-keyscan -t rsa gitlab.commandemy.training >> ~/.ssh/known_hosts
 
 
 build:
