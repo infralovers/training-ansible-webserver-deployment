@@ -1,0 +1,5 @@
+---
+- vars:
+    apache_port: 8008
+- import_playbook: server.yml
+- import_playbook: loadbalancer.yml

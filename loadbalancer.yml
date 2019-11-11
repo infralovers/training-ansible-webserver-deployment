@@ -1,0 +1,18 @@
+---
+- hosts: loadbalancers
+  become_user: root
+  become: yes
+  tasks:
+  - name: gather facts from web servers
+    loop: "{{groups['webservers']}}"
+    delegate_to: "{{item}}"
+    delegate_facts: True
+    ec2_metadata_facts:
+  - include_role:
+      name: geerlingguy.haproxy
+    vars:
+      haproxy_backend_servers:
+        - name: web1
+          address: "{{ hostvars['host1']['ansible_ec2_public_ipv4'] }}:80"
+        - name: web2
+          address: "{{ hostvars['host2']['ansible_ec2_public_ipv4'] }}:80"
