@@ -3,5 +3,4 @@
 
 - src: git@gitlab.commandemy.training:git_training_user_20/helloworld.git
   scm: git
-  version: latest
   accept_hostkey: yes
