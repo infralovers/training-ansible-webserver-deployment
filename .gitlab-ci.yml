@@ -22,4 +22,4 @@ build:
   script:
     - mkdir roles
     - ansible-galaxy install --force -r requirements.yml
-    - ansible-playbook loadbalancer.yml
+    - ansible-playbook deployment.yml
