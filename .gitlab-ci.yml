@@ -18,7 +18,5 @@ build:
   stage: test
   script:
     - mkdir roles
-    - ssh-keyscan -t rsa gitlab.commandemy.training >> ~/.ssh/known_hosts
-    - git clone git@gitlab.commandemy.training:git_training_user_20/helloworld.git roles/helloworld
     - ansible-galaxy install -vvv --force -r requirements.yml
     - ansible-playbook loadbalancer.yml
