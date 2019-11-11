@@ -3,6 +3,10 @@ image: commandemy/ansible-cicd:latest
 services:
   - docker:19.03.1-dind
 
+stages:
+  - lint
+  - test
+  
 before_script:
   - export ANSIBLE_CONFIG=ansible.cfg
   - ansible --version
@@ -13,10 +17,16 @@ before_script:
   - chmod 700 ~/.ssh
   - ssh-keyscan -t rsa gitlab.commandemy.training >> ~/.ssh/known_hosts
 
+linter:
+  stage: lint
+  image: registry.gitlab.com/imagedb/ansible-lint
+  script:
+    - ansible-lint loadbalancer.yml
 
 build:
+ 
   stage: test
   script:
     - mkdir roles
-    - ansible-galaxy install -vvv --force -r requirements.yml
+    - ansible-galaxy install --force -r requirements.yml
     - ansible-playbook loadbalancer.yml
