@@ -1,5 +1,5 @@
 ---
-- hosts: 
+- hosts: all
 - vars:
     apache_port: 8008
 - import_playbook: webserver.yml
