@@ -17,13 +17,7 @@ before_script:
   - chmod 700 ~/.ssh
   - ssh-keyscan -t rsa gitlab.commandemy.training >> ~/.ssh/known_hosts
 
-linter:
-  stage: lint
-  script:
-    - docker run --rm -v $(pwd):/data cytopia/ansible-lint loadbalancer.yml
-
 build:
- 
   stage: test
   script:
     - mkdir roles
