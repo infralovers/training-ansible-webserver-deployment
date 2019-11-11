@@ -1,6 +1,6 @@
 # Install a role from the Ansible Galaxy
 - src: geerlingguy.haproxy
 
-- src: git+ssh://git@gitlab.commandemy.training:git_training_user_20/helloworld.git
+- src: git+ssh://git@gitlab.commandemy.training/git_training_user_20/helloworld.git
   scm: git
   accept_hostkey: yes
