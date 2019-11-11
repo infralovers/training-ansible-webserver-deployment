@@ -16,5 +16,5 @@ before_script:
 build:
   stage: test
   script:
-    - ansible-galaxy install -r requirements.yml
+    - ansible-galaxy install --force -r requirements.yml
     - ansible-playbook loadbalancer.yml
