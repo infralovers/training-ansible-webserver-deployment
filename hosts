@@ -1,7 +1,8 @@
 
-host1 ansible_host=host-git-01.commandemy.training
-host2 ansible_host=host-git-02.commandemy.training
-host3 ansible_host=host-git-03.commandemy.training
+# example host.git-user-14-i-02.commandemy.training
+host1 ansible_host=host.git-user-<your-id>-i-02.commandemy.training
+host2 ansible_host=host.git-user-<your-id>-i-03.commandemy.training
+host3 ansible_host=host.git-user-<your-id>-i-04.commandemy.training
 
 [hosts]
 host1
