@@ -8,9 +8,13 @@
     delegate_to: "{{item}}"
     delegate_facts: True
     ec2_metadata_facts:
+  - name: update package list
+    apt:
+      update_cache: yes
   - include_role:
       name: geerlingguy.haproxy
     vars:
+      haproxy_version: "{{ '1.4' if '1.4.' in haproxy_version_result.stdout else '1.5' }}"
       haproxy_backend_servers:
         - name: web1
           address: "{{ hostvars['host1']['ansible_ec2_public_ipv4'] }}:80"
